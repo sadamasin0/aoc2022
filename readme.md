@@ -5,3 +5,4 @@
 ## My solutions
 
 [Day 1](day1/solution.py)
+[Day 2](day2/solution.py)
