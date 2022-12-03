@@ -24,14 +24,21 @@ def extract_shared_items(rucksack):
     middle = int(len(rucksack)/2)
     return {x for x in rucksack[:middle] if x in rucksack[middle:]}
 
+def extract_shared_items_for_multiple_rucksacks(rucksacks):
+    """
+    Returns set of unique shared items in all given rucksacks
+    """
+    return {x for x in rucksacks[0] if all([x in y for y in rucksacks[1:]])}
+
+
 if __name__ == '__main__':
     scoreboard = generate_scoreboard()
     rucksacks = generate_rucksacks()
 
     total_score = 0
 
-    for rucksack in rucksacks:
-        for shared_item in extract_shared_items(rucksack):
+    for i in range(0, len(rucksacks), 3):
+        for shared_item in extract_shared_items_for_multiple_rucksacks(rucksacks[i:i+3]):
             total_score += scoreboard[shared_item]
 
     print(total_score)
