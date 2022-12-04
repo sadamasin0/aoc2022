@@ -17,9 +17,9 @@ def check_if_any_range_contains_another(ranges):
     """
     range_first = generate_list_from_range(ranges[0])
     range_second = generate_list_from_range(ranges[1])
-    return all([
+    return any([
         x in range_second for x in range_first
-    ]) or all([
+    ]) or any([
         x in range_first for x in range_second
     ])
 
