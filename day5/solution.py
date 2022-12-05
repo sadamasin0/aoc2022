@@ -34,10 +34,11 @@ def generate_instructions():
         yield int(sub_instructions[0]), int(stack_pointers[0]), int(stack_pointers[1])
 
 def execute_instruction(how_many, from_which, to_which):
+    temp_stack = []
     for i in range(how_many):
-        globals()[stacks[to_which]].append(
-            globals()[stacks[from_which]].pop()
-        )
+        temp_stack.append(globals()[stacks[from_which]].pop())
+    for i in range(len(temp_stack)):
+        globals()[stacks[to_which]].append(temp_stack.pop())
 
 def print_result():
     result = []
