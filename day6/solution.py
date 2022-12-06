@@ -9,8 +9,8 @@ def check_if_all_unique(iter):
 def input_lookup_for_marker():
     input = open('input.txt').readline()
     for counter in range(len(input)):
-        if check_if_all_unique(input[counter:counter+4]):
+        if check_if_all_unique(input[counter:counter+14]):
             return counter
 
 if __name__ == '__main__':
-    print(input_lookup_for_marker()+4)
+    print(input_lookup_for_marker()+14)
