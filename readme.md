@@ -15,3 +15,5 @@
 [Day 5](day5/solution.py)
 
 [Day 6](day6/solution.py)
+
+[Day 7](day7/solution.py)
