@@ -36,4 +36,8 @@ if __name__ == '__main__':
         else: # handle filesize information
             enhance_folder_size(current_folder, int(line.split(' ')[0]))
 
-    print(sum([folder.size for folder in dirs.values() if folder.size <= 100_000]))
+    needed_space = 30_000_000 - (70_000_000 - dirs['/'].size)
+    dirs_above_needed_space = [folder for folder in dirs.values() if folder.size >= needed_space]
+    dirs_above_needed_space.sort(key=lambda folder: folder.size)
+
+    print(dirs_above_needed_space[0].size)
